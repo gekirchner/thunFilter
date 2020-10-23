@@ -11,7 +11,7 @@ def readFile(file):
     return f.read() 
 
 writeFile("\"hello world\" from a file","testFile.txt")
-print('again locally modified for test')
+print('2nd again locally modified for test')
 for i in range(10):
     print( ' Counter: ', i )
 fileContents=readFile("testFile.txt")
