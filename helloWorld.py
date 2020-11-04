@@ -1,5 +1,7 @@
 #first try: print contents of a file
 
+import os
+
 def writeFile(contents,file):
     file = open(file,"w") 
     file.write(contents) 
@@ -11,8 +13,19 @@ def readFile(file):
     return f.read() 
 
 writeFile("\"hello world\" from a file","testFile.txt")
-print('2nd again locally modified for test')
+print('modified by gitpod for test: testFileOnOtherDir')
 for i in range(10):
     print( ' Counter: ', i )
 fileContents=readFile("testFile.txt")
+print(fileContents)
+
+print('--- Now on other Dir ---')
+dirOfFile = '/workspace/dirOfTestFile'
+if os.path.exists(dirOfFile):
+    print('dir exists: ', dirOfFile)
+else:
+    print('creating ', dirOfFile)
+    os.mkdir(dirOfFile)
+writeFile("\"hello world\" from a file on dirOfFile", dirOfFile + "/testFileOnOtherDir.txt")
+fileContents=readFile(dirOfFile + "/testFileOnOtherDir.txt")
 print(fileContents)
