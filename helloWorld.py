@@ -1,6 +1,7 @@
 #first try: print contents of a file
 
 import os
+from pathlib import Path
 
 def writeFile(contents,file):
     file = open(file,"w") 
@@ -20,7 +21,9 @@ fileContents=readFile("testFile.txt")
 print(fileContents)
 
 print('--- Now on other Dir ---')
-dirOfFile = '/workspace/dirOfTestFile'
+#dirOfFile = '/workspace/dirOfTestFile'
+myHomeDir = str(Path.home())
+dirOfFile = myHomeDir + '/dirOfTestFile'
 if os.path.exists(dirOfFile):
     print('dir exists: ', dirOfFile)
 else:
