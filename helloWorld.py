@@ -49,7 +49,7 @@ fileContents=readFile(dirOfFile + "/testFileOnOtherDir.txt")
 print(fileContents)
 
 print('--- Now write text from console input into file ---')
-myInput = input("Eintrag: ")
+myInput = input("File entry: ")
 appendOnFile(myInput + "\n", dirOfFile + "/testFileOnOtherDir.txt")
 fileContents=readFile(dirOfFile + "/testFileOnOtherDir.txt")
 print('contents of file:')
@@ -60,4 +60,4 @@ myInput = input("Remove" + dirOfFile + "/testFileOnOtherDir.txt" + " ? ")
 if myInput == "y":
         removeFile(dirOfFile + "/testFileOnOtherDir.txt")
 else:
-    print(dirOfFile + "/testFileOnOtherDir.txt" + "was NOT removed")
+    print(dirOfFile + "/testFileOnOtherDir.txt" + " was NOT removed")
