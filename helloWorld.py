@@ -1,7 +1,7 @@
 #first try: print contents of a file
 
 import os
-from pathlib import Path
+import tfConfig
 
 def writeFile(contents,file):
     file = open(file,"w") 
@@ -20,7 +20,7 @@ def readFile(file):
     return f.read() 
 
 def removeFile(file):
-    myAnswer = input("Delete file" + file +" ?")
+    myAnswer = input("Delete file " + file +" ?")
     if myAnswer == "y":
         os.remove(file)
         print(file + " was REMOVED")
@@ -36,28 +36,25 @@ fileContents=readFile("testFile.txt")
 print(fileContents)
 
 print('--- Now on other Dir ---')
-#dirOfFile = '/workspace/dirOfTestFile'
-myHomeDir = str(Path.home())
-dirOfFile = myHomeDir + '/dirOfTestFile'
-if os.path.exists(dirOfFile):
-    print('dir exists: ', dirOfFile)
+if os.path.exists(tfConfig.dirOfFile):
+    print('dir exists: ', tfConfig.dirOfFile)
 else:
-    print('creating ', dirOfFile)
-    os.mkdir(dirOfFile)
-appendOnFile("\"hello world\" from a file on dirOfFile\n", dirOfFile + "/testFileOnOtherDir.txt")
-fileContents=readFile(dirOfFile + "/testFileOnOtherDir.txt")
+    print('creating ', tfConfig.dirOfFile)
+    os.mkdir(tfConfig.dirOfFile)
+appendOnFile("\"hello world\" from a file on tfConfig.dirOfFile\n", tfConfig.dirOfFile + "/testFileOnOtherDir.txt")
+fileContents=readFile(tfConfig.dirOfFile + "/testFileOnOtherDir.txt")
 print(fileContents)
 
 print('--- Now write text from console input into file ---')
 myInput = input("File entry: ")
-appendOnFile(myInput + "\n", dirOfFile + "/testFileOnOtherDir.txt")
-fileContents=readFile(dirOfFile + "/testFileOnOtherDir.txt")
+appendOnFile(myInput + "\n", tfConfig.dirOfFile + "/testFileOnOtherDir.txt")
+fileContents=readFile(tfConfig.dirOfFile + "/testFileOnOtherDir.txt")
 print('contents of file:')
 print(fileContents)
 
 print(' --- Now remove optionally file ---')
-myInput = input("Remove" + dirOfFile + "/testFileOnOtherDir.txt" + " ? ")
+myInput = input("Remove" + tfConfig.dirOfFile + "/testFileOnOtherDir.txt" + " ? ")
 if myInput == "y":
-        removeFile(dirOfFile + "/testFileOnOtherDir.txt")
+        removeFile(tfConfig.dirOfFile + "/testFileOnOtherDir.txt")
 else:
-    print(dirOfFile + "/testFileOnOtherDir.txt" + " was NOT removed")
+    print(tfConfig.dirOfFile + "/testFileOnOtherDir.txt" + " was NOT removed")
