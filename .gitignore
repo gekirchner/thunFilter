@@ -1,2 +1,4 @@
 testFile.txt
 tfConfig.py
+__pycache__
+*.pyc
