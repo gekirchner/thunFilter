@@ -30,9 +30,10 @@ def removeFile(file):
 
 appendOnFile("\"hello world\" from a file\n","testFile.txt")
 print('modified by gitpod for test: testFileOnOtherDir')
+#loop just for fun
 for i in range(10):
     print( ' Counter: ', i )
-fileContents=readFile("testFile.txt")
+fileContents = readFile("testFile.txt")
 print(fileContents)
 
 print('--- Now on other Dir ---')
@@ -41,20 +42,20 @@ if os.path.exists(tfConfig.dirOfFile):
 else:
     print('creating ', tfConfig.dirOfFile)
     os.mkdir(tfConfig.dirOfFile)
-appendOnFile("\"hello world\" from a file on tfConfig.dirOfFile\n", tfConfig.dirOfFile + "/testFileOnOtherDir.txt")
-fileContents=readFile(tfConfig.dirOfFile + "/testFileOnOtherDir.txt")
+appendOnFile("\"hello world\" from a file on tfConfig.dirOfFile\n", tfConfig.fileToBeHandledWithDir)
+fileContents = readFile(tfConfig.fileToBeHandledWithDir)
 print(fileContents)
 
 print('--- Now write text from console input into file ---')
 myInput = input("File entry: ")
-appendOnFile(myInput + "\n", tfConfig.dirOfFile + "/testFileOnOtherDir.txt")
-fileContents=readFile(tfConfig.dirOfFile + "/testFileOnOtherDir.txt")
+appendOnFile(myInput + "\n", tfConfig.fileToBeHandledWithDir)
+fileContents = readFile(tfConfig.fileToBeHandledWithDir)
 print('contents of file:')
 print(fileContents)
 
 print(' --- Now remove optionally file ---')
-myInput = input("Remove" + tfConfig.dirOfFile + "/testFileOnOtherDir.txt" + " ? ")
+myInput = input("Remove" + tfConfig.fileToBeHandledWithDir + " ? ")
 if myInput == "y":
-        removeFile(tfConfig.dirOfFile + "/testFileOnOtherDir.txt")
+        removeFile(tfConfig.fileToBeHandledWithDir)
 else:
-    print(tfConfig.dirOfFile + "/testFileOnOtherDir.txt" + " was NOT removed")
+    print(tfConfig.fileToBeHandledWithDir + " was NOT removed")
