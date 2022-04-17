@@ -1,7 +1,22 @@
 #first try: print contents of a file
 
+#### Imports ####
+
 import os
 import tfConfig
+
+#### Functions ####
+
+def userInputNum(textToUser, minAllowed, maxAllowed):
+    while True:
+        userInput = input(textToUser)
+        try:
+            inputNum = int(userInput)
+            if inputNum >= minAllowed and inputNum <= maxAllowed:
+                break
+        except ValueError:
+            print("This is not a number. Please enter a valid number!")
+    return inputNum
 
 def writeFile(contents,file):
     file = open(file,"w") 
@@ -9,14 +24,14 @@ def writeFile(contents,file):
     file.close() 
     return
 
-def appendOnFile(contents,file):
-    file = open(file,"a") 
+def appendOnFile(contents, file):
+    file = open(file, "a") 
     file.write(contents) 
     file.close() 
     return
   
 def readFile(file):
-    f = open(file,"r") 
+    f = open(file, "r") 
     return f.read() 
 
 def removeFile(file):
@@ -27,6 +42,22 @@ def removeFile(file):
     else:
         print(file + " was NOT removed")
         return
+
+#### Main Program ####
+
+print()
+print()
+print("####### thunFilter running #######")
+print()
+print("######### Select Task #########")
+print("### 1 = Some Tests          ###")
+print("### 2 = Handle Filter File  ###")
+print("### 3 = Exit                ###")
+print("###############################")
+print()
+
+userInputNum("My selection: ", 1, 3)
+
 
 appendOnFile("\"hello world\" from a file\n","testFile.txt")
 print('modified by gitpod for test: testFileOnOtherDir')
