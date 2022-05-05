@@ -58,16 +58,16 @@ print()
 
 userInputNum("My selection: ", 1, 3)
 
-
 appendOnFile("\"hello world\" from a file\n","testFile.txt")
-print('modified by gitpod for test: testFileOnOtherDir')
+
 #loop just for fun
 for i in range(10):
-    print( ' Counter: ', i )
+    print( ' Counter: ', i, 'id: ', id(i) )
 fileContents = readFile("testFile.txt")
 print(fileContents)
 
 print('--- Now on other Dir ---')
+print('modified by gitpod for test:', tfConfig.fileToBeHandled, 'on Dir:', tfConfig.dirOfFile)
 if os.path.exists(tfConfig.dirOfFile):
     print('dir exists: ', tfConfig.dirOfFile)
 else:
